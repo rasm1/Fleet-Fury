@@ -1,2 +1,9 @@
-for _ in range(10):
-    print(" _ " *10)
+
+def playGame():
+    print("_"*30)
+    print("Welcome to Fleet fury")
+    print("A console based battleships game")
+    print("press a key")
+    print("_"*30)
+
+playGame()
