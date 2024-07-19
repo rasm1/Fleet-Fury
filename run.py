@@ -17,21 +17,24 @@ def get_num_of_ships():
     Get number of ships to populate the board with
     """
     
-    num_of_ships = input("Please enter the amount of ships you want to play with:")
-    validate_num_of_ships(num_of_ships)
+    
+    validate_num_of_ships()
 
-def validate_num_of_ships(num_of_ships):
+def validate_num_of_ships():
     """
     validates if number entered is correct data type
     """
     try:
+        num_of_ships = input("Please enter the amount of ships you want to play with:")
+        if "." in num_of_ships:
+            raise ValueError(f"{num_of_ships} is a decimal, please try again")
+        num_of_ships = int(num_of_ships)
+        if num_of_ships <= 0:
+            raise ValueError("negative number or 0 was entered, please try a positive number")
         if num_of_ships > 36:
-            raise ValueError(
-                print(f"{num_of_ships} is too many ships, try playing with less ships")
-            )
-    except ValueError as e:
-        print(f"{num_of_ships} is not a number, try entering a number")
-
+            raise ValueError(f"{num_of_ships} is too many ships, please try again")
+    except ValueError as ve:
+        print(f"invalid input: {ve}")
 
     
 
@@ -47,6 +50,8 @@ def playGame():
     player_board = Board(6,4,player_name,type = "player")
 
 
+def main():
+    playGame()
+    get_num_of_ships()
 
-playGame()
-get_num_of_ships()
+main()
