@@ -18,7 +18,22 @@ def get_num_of_ships():
     """
     
     num_of_ships = input("Please enter the amount of ships you want to play with:")
-    print(f"You have entered: {num_of_ships} ships")
+    validate_num_of_ships(num_of_ships)
+
+def validate_num_of_ships(num_of_ships):
+    """
+    validates if number entered is correct data type
+    """
+    try:
+        if num_of_ships > 36:
+            raise ValueError(
+                print(f"{num_of_ships} is too many ships, try playing with less ships")
+            )
+    except ValueError as e:
+        print(f"{num_of_ships} is not a number, try entering a number")
+
+
+    
 
 def playGame():
     print("_"*30)
@@ -27,7 +42,7 @@ def playGame():
     print("press a key")
     print("_"*30)
     player_name = input("please enter your name here:")
-    print(f"Your name is: {player_name}\n")
+    
 
     player_board = Board(6,4,player_name,type = "player")
 
