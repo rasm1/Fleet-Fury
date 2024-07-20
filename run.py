@@ -1,22 +1,51 @@
 from random import randint
-class Grid:
-    """
-    Main class for the game grid.
-    """
-    def __init__(self,grid_size,num_of_ships,player_name,type):
-        self.grid_size = [["_" for x in range(grid_size)] for y in range(grid_size)]
-        self.num_of_ships = num_of_ships
-        self.player_name = player_name
-        self.type = type
+
+GRID_SIZE = 6
+hit = [6,2,5]
+miss = [21,35,2]
 
 
+
+def create_grid(size):
+    return [[EMPTY] * size for _ in range(size)]
+
+def print_grid(): #dr codie youtube
+    """
+    prints the play grid
+    """
+    print(f"{player_name}'s grid:")
+    print("    0 ","  1 ","  2  "," 3  "," 4  "," 5  ")
+
+    location = 0
+    for x in range(6):
+        row = ""
+        for y in range(6):
+            ch = " _ "
+            if location in miss:
+                ch = " / "
+            elif location in hit:
+                ch = " X "
+            
+            row = row + ch
+            location = location + 1
+        print(x, " ",row)
+
+
+    def get_shot():
+        valid_shot = "n"
+        while valid_shot == "n":
+            shot = input("please choose a location")
+            shot = int(shot)
+            if shot < 0 or shot > 36:
+                print("incorrect shot, please try again")
+            else:
+                valid_shot = "y"
+        return shot
 
 def get_num_of_ships():
     """
     Get number of ships to populate the grid with
-    """
-    
-    
+    """  
     validate_num_of_ships()
 
 def validate_num_of_ships():
@@ -35,21 +64,16 @@ def validate_num_of_ships():
         print_grid()
     except ValueError as ve:
         print(f"invalid input: {ve}")
+    finally:
+        return num_of_ships
+        print(num_of_ships)
 
-def print_grid():
-    """
-    prints the play grid
-    """
-    print(f"{player_name}'s grid:")
-    print("  0  "," 1 ","  2  "," 3  "," 4  "," 5  ")
-    for _ in range(6):
-        print(_, "  _  "*6)
+
 
 def populate_grid():
     """
     places ships on the grid
     """
-
 
 
 
@@ -60,12 +84,12 @@ def RunGame():
     print("_"*30)
     global player_name
     player_name = input("please enter your name here:")
-    
-
-    player_grid = Grid(6,4,player_name,type = "player")
 
 
 def main():
     RunGame()
     get_num_of_ships()
+    populate_grid()
+    get_shot()
 main()
+
