@@ -1,3 +1,4 @@
+from random import randint
 class Grid:
     """
     Main class for the game grid.
@@ -67,5 +68,4 @@ def RunGame():
 def main():
     RunGame()
     get_num_of_ships()
-
 main()
