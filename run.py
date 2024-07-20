@@ -34,12 +34,16 @@ def print_grid(): #dr codie youtube
 def get_shot():
     valid_shot = "n"
     while valid_shot == "n":
-        shot = input("please choose a location:")
-        shot = int(shot)
-        if shot < 0 or shot > 36:
-            print("incorrect shot, please try again")
-        else:
-            valid_shot = "y"
+        try:
+            shot = input("please choose a location:")
+            shot = int(shot)
+            if shot < 0 or shot > 36:
+                print("incorrect shot, please try again")
+            else:
+                valid_shot = "y"
+                break
+        except:
+            print("invalid guess ,please try again")
     return shot
 
 def get_num_of_ships():
