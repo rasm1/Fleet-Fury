@@ -3,7 +3,7 @@ from random import randint
 GRID_SIZE = 6
 hit = [6,2,5]
 miss = [21,35,2]
-
+guesses = hit + miss
 
 
 def create_grid(size):
@@ -31,7 +31,7 @@ def print_grid(): #dr codie youtube
         print(x, " ",row)
 
 
-def get_shot():
+def get_shot(): 
     valid_shot = "n"
     while valid_shot == "n":
         try:
@@ -39,6 +39,8 @@ def get_shot():
             shot = int(shot)
             if shot < 0 or shot > 36:
                 print("incorrect shot, please try again")
+            elif shot in guesses:
+                print("You have already shot at that location")
             else:
                 valid_shot = "y"
                 break
