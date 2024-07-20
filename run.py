@@ -1,9 +1,9 @@
-class Board:
+class Grid:
     """
-    Main class for the game board.
+    Main class for the game grid.
     """
-    def __init__(self,board_size,num_of_ships,player_name,type):
-        self.board_size = [["_" for x in range(board_size)] for y in range(board_size)]
+    def __init__(self,grid_size,num_of_ships,player_name,type):
+        self.grid_size = [["_" for x in range(grid_size)] for y in range(grid_size)]
         self.num_of_ships = num_of_ships
         self.player_name = player_name
         self.type = type
@@ -12,7 +12,7 @@ class Board:
 
 def get_num_of_ships():
     """
-    Get number of ships to populate the board with
+    Get number of ships to populate the grid with
     """
     
     
@@ -31,17 +31,25 @@ def validate_num_of_ships():
             raise ValueError("negative number or 0 was entered, please try a positive number")
         if num_of_ships > 36:
             raise ValueError(f"{num_of_ships} is too many ships, please try again")
+        print_grid()
     except ValueError as ve:
         print(f"invalid input: {ve}")
 
-def print_board():
+def print_grid():
     """
     prints the play grid
     """
-    print(f"{player_name}'s board:")
+    print(f"{player_name}'s grid:")
     print("  0  "," 1 ","  2  "," 3  "," 4  "," 5  ")
     for _ in range(6):
         print(_, "  _  "*6)
+
+def populate_grid():
+    """
+    places ships on the grid
+    """
+
+
 
 
 def RunGame():
@@ -53,12 +61,11 @@ def RunGame():
     player_name = input("please enter your name here:")
     
 
-    player_board = Board(6,4,player_name,type = "player")
+    player_grid = Grid(6,4,player_name,type = "player")
 
 
 def main():
     RunGame()
     get_num_of_ships()
-    print_board()
 
 main()
