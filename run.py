@@ -84,7 +84,7 @@ def validate_num_of_ships():
 
 def populate_grid(num_of_ships):
     for ship in range(num_of_ships):
-       ship_location = randint(0,GRID_SIZE-1)
+       ship_location = randint(0,35)
        ships.append(ship_location)
 print(ships)
 
