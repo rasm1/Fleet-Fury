@@ -1,15 +1,13 @@
 from random import randint
 
 GRID_SIZE = 6
-hit = [6,2,5]
-miss = [21,35,2]
+hit = []
+miss = []
+ships = [24]
 guesses = hit + miss
 
 
-def create_grid(size):
-    return [[EMPTY] * size for _ in range(size)]
-
-def print_grid(): #dr codie youtube
+def print_grid(player_name): #dr codie youtube
     """
     prints the play grid
     """
@@ -26,27 +24,36 @@ def print_grid(): #dr codie youtube
             elif location in hit:
                 ch = " X "
             
-            row = row + ch
+            row += ch
             location = location + 1
         print(x, " ",row)
 
 
 def get_shot(): 
-    valid_shot = "n"
-    while valid_shot == "n":
+    valid_shot = False
+    while not valid_shot:
         try:
             shot = input("please choose a location:")
             shot = int(shot)
-            if shot < 0 or shot > 36:
+            if shot < 0 or shot > GRID_SIZE * GRID_SIZE:
                 print("incorrect shot, please try again")
             elif shot in guesses:
                 print("You have already shot at that location")
             else:
-                valid_shot = "y"
+                valid_shot = True
                 break
-        except:
+        except ValueError:
             print("invalid guess ,please try again")
     return shot
+
+def validate_shot(shot):
+   
+    if shot in ships:
+        hit.append(shot)
+        ships.remove(shot)
+    else:
+        miss.append(shot)
+
 
 def get_num_of_ships():
     """
@@ -67,36 +74,37 @@ def validate_num_of_ships():
             raise ValueError("negative number or 0 was entered, please try a positive number")
         if num_of_ships > 36:
             raise ValueError(f"{num_of_ships} is too many ships, please try again")
-        print_grid()
     except ValueError as ve:
         print(f"invalid input: {ve}")
+       
     finally:
         return num_of_ships
-        print(num_of_ships)
-
-
-
-def populate_grid():
-    """
-    places ships on the grid
-    """
-
+        
 
 
 def RunGame():
-    print("_"*30)
-    print("Welcome to Fleet fury")
-    print("A console based battleships game")
-    print("_"*30)
-    global player_name
-    player_name = input("please enter your name here:")
+   
+    player_name = input("please enter your name here:") # split up in diffrent function
+    return player_name
 
 
 def main():
-    RunGame()
-    get_num_of_ships()
-    populate_grid()
-    get_shot()
+    player_name = RunGame()
+    num_of_ships = get_num_of_ships()
+   
+   
+    while True:
+        shot = get_shot()
+        valid_shot = validate_shot(shot)
+        print_grid(player_name)
+   
+
+print("_"*30)
+print("Welcome to Fleet fury")
+print("A console based battleships game")
+print("_"*30)
 
 main()
+
+
 
