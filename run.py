@@ -3,7 +3,7 @@ from random import randint
 GRID_SIZE = 6
 hit = []
 miss = []
-ships = [24]
+ships = []
 guesses = hit + miss
 
 
@@ -23,6 +23,8 @@ def print_grid(player_name): #dr codie youtube
                 ch = " / "
             elif location in hit:
                 ch = " X "
+            elif location in ships:
+                ch = " @ "
             
             row += ch
             location = location + 1
@@ -79,6 +81,13 @@ def validate_num_of_ships():
        
     finally:
         return num_of_ships
+
+def populate_grid(num_of_ships):
+    for ship in range(num_of_ships):
+       ship_location = randint(0,GRID_SIZE-1)
+       ships.append(ship_location)
+print(ships)
+
         
 
 
@@ -90,9 +99,8 @@ def RunGame():
 
 def main():
     player_name = RunGame()
-    num_of_ships = get_num_of_ships()
-   
-   
+    num_of_ships = validate_num_of_ships() 
+    populate_grid(num_of_ships)     
     while True:
         shot = get_shot()
         valid_shot = validate_shot(shot)
