@@ -6,12 +6,16 @@ miss = []
 ships = []
 guesses = hit + miss
 
+computer_hit = []
+computer_miss = []
+computer_ships = []
+computer_guesses = computer_hit + computer_miss
 
-def print_grid(player_name): 
+def print_computer_grid(): 
     """
-    Prints the play grid
+    Prints the play grid for the computer
     """
-    print(f"{player_name}'s grid:")
+    print("computer's grid:")
     print("    0 ","  1 ","  2  "," 3  "," 4  "," 5  ")
 
     location = 0
@@ -22,12 +26,29 @@ def print_grid(player_name):
             if location in miss:
                 ch = " / "
             elif location in hit:
+                ch = " X "           
+            row += ch
+            location = location + 1
+        print(x, " ", row)
+
+def print_grid(player_name): 
+    """
+    Prints the play grid for the player
+    """
+    print(f"{player_name}'s grid:")
+    print("    0 ","  1 ","  2  "," 3  "," 4  "," 5  ")
+
+    location = 0
+    for x in range(6):
+        row = ""
+        for y in range(6):
+            ch = " _ "
+            if location in computer_miss:
+                ch = " / "
+            elif location in computer_hit:
                 ch = " X "
             elif location in ships:
                 ch = " @ "
-                if player_name == "computer":
-                    ch = " _ "
-            
             row += ch
             location = location + 1
         print(x, " ", row)
@@ -50,7 +71,12 @@ def get_shot():
             print("Invalid guess ,please try again.")
     return shot
 
-def validate_shot(shot):
+def get_computer_shot():
+    computer_shot = randint(0,35)
+    return computer_shot
+    
+
+def validate_shot(shot,computer_shot):
    
     if shot in ships:
         hit.append(shot)
@@ -59,6 +85,14 @@ def validate_shot(shot):
     else:
         miss.append(shot)
         print("Miss!")
+    
+    if computer_shot in computer_ships:
+        computer_hit.append(computer_shot)
+        computer_ships.remove(computer_shot)
+        print("Computer Hit!")
+    else:
+        miss.append(computer_shot)
+        print("Computer Miss!")
 
 def get_num_of_ships():
     """
@@ -66,7 +100,7 @@ def get_num_of_ships():
     """  
     while True:
         try:
-            num_of_ships = input("Please enter the amount of ships you want to play with (1 - 36): ")
+            num_of_ships = input("Please enter the amount of ships you want to play with (0 - 36): ")
             if num_of_ships == "":
                 raise ValueError("Please choose an amount of ships higher than 0.\n")
             if "." in num_of_ships:
@@ -89,6 +123,8 @@ def populate_grid(num_of_ships):
        ships.append(ship_location)
     print(ships)
 
+
+
         
 
 
@@ -101,20 +137,22 @@ def RunGame():
 
 
 def main():
+    print("_"*30)
+    print("Welcome to Fleet fury")
+    print("A console based battleships game")
+    print("_"*30)
     player_name = RunGame()
     num_of_ships = get_num_of_ships() 
     populate_grid(num_of_ships)     
     while True:
-        print_grid("computer")
+        print_computer_grid()
         print_grid(player_name)
         shot = get_shot()
-        valid_shot = validate_shot(shot)
+        computer_shot = get_computer_shot()
+        valid_shot = validate_shot(shot,computer_shot)
+        
         
    
 
-print("_"*30)
-print("Welcome to Fleet fury")
-print("A console based battleships game")
-print("_"*30)
 
 main()
