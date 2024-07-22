@@ -60,28 +60,24 @@ def validate_shot(shot):
 
 def get_num_of_ships():
     """
-    Get number of ships to populate the grid with
+    Get number of ships and validates input
     """  
-    validate_num_of_ships()
+    while True:
+        try:
+            num_of_ships = input("Please enter the amount of ships you want to play with (1 - 36): ")
+            if "." in num_of_ships:
+                raise ValueError(f"{num_of_ships} is a decimal, please try again.")
+            num_of_ships = int(num_of_ships)
+            if num_of_ships <= 0:
+                raise ValueError("Negative number or 0 was entered, please try again.")
+            if num_of_ships > 36:
+                raise ValueError(f"{num_of_ships} is too many ships, please try again.")
+            return num_of_ships
+        except ValueError as ve:
+            print(f"Invalid input: {ve}")
 
-def validate_num_of_ships():
-    """
-    validates if number entered is correct data type
-    """
-    try:
-        num_of_ships = input("Please enter the amount of ships you want to play with:")
-        if "." in num_of_ships:
-            raise ValueError(f"{num_of_ships} is a decimal, please try again")
-        num_of_ships = int(num_of_ships)
-        if num_of_ships <= 0:
-            raise ValueError("negative number or 0 was entered, please try a positive number")
-        if num_of_ships > 36:
-            raise ValueError(f"{num_of_ships} is too many ships, please try again")
-    except ValueError as ve:
-        print(f"invalid input: {ve}")
-       
-    finally:
-        return num_of_ships
+
+        
 
 def populate_grid(num_of_ships):
     for ship in range(num_of_ships):
@@ -100,7 +96,7 @@ def RunGame():
 
 def main():
     player_name = RunGame()
-    num_of_ships = validate_num_of_ships() 
+    num_of_ships = get_num_of_ships() 
     populate_grid(num_of_ships)     
     while True:
         shot = get_shot()
