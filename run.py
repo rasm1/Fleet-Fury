@@ -67,6 +67,8 @@ def get_num_of_ships():
     while True:
         try:
             num_of_ships = input("Please enter the amount of ships you want to play with (1 - 36): ")
+            if num_of_ships == "":
+                raise ValueError("Please choose an amount of ships higher than 0.\n")
             if "." in num_of_ships:
                 raise ValueError(f"{num_of_ships} is a decimal, please try again.\n")
             num_of_ships = int(num_of_ships)
@@ -93,6 +95,8 @@ def populate_grid(num_of_ships):
 def RunGame():
    
     player_name = input("please enter your name here:") # split up in diffrent function
+    if player_name == "":
+        player_name = "commander no-name"
     return player_name
 
 
