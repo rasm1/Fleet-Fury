@@ -25,6 +25,8 @@ def print_grid(player_name):
                 ch = " X "
             elif location in ships:
                 ch = " @ "
+                if player_name == "computer":
+                    ch = " _ "
             
             row += ch
             location = location + 1
@@ -99,6 +101,7 @@ def main():
     num_of_ships = get_num_of_ships() 
     populate_grid(num_of_ships)     
     while True:
+        print_grid("computer")
         print_grid(player_name)
         shot = get_shot()
         valid_shot = validate_shot(shot)
