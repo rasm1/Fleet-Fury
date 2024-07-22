@@ -82,7 +82,7 @@ def validate_shot(shot,computer_shot):
    
     if shot in computer_ships:
         hit.append(shot)
-        ships.remove(shot)
+        computer_ships.remove(shot)
         print("Hit!")
     else:
         miss.append(shot)
@@ -90,7 +90,7 @@ def validate_shot(shot,computer_shot):
     
     if computer_shot in ships:
         computer_hit.append(computer_shot)
-        computer_ships.remove(computer_shot)
+        ships.remove(computer_shot)
         print("Computer Hit!")
     else:
         computer_miss.append(computer_shot)
@@ -120,6 +120,8 @@ def get_num_of_ships():
     
 
 def populate_grid(num_of_ships):
+    global ships  
+    ships = []  
     for ship in range(num_of_ships):
        ship_location = randint(0,35)
        ships.append(ship_location)
@@ -127,7 +129,9 @@ def populate_grid(num_of_ships):
             ship_location = randint(0, 35)  
 
 def populate_computer_grid(num_of_ships):
- for ship in range(num_of_ships):
+    global computer_ships
+    computer_ships = []
+    for ship in range(num_of_ships):
        ship_location = randint(0,35)
        computer_ships.append(ship_location)
        while ship_location in computer_ships:
