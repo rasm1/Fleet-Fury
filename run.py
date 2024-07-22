@@ -66,12 +66,12 @@ def get_num_of_ships():
         try:
             num_of_ships = input("Please enter the amount of ships you want to play with (1 - 36): ")
             if "." in num_of_ships:
-                raise ValueError(f"{num_of_ships} is a decimal, please try again.")
+                raise ValueError(f"{num_of_ships} is a decimal, please try again.\n")
             num_of_ships = int(num_of_ships)
             if num_of_ships <= 0:
-                raise ValueError("Negative number or 0 was entered, please try again.")
+                raise ValueError("Negative number or 0 was entered, please try again.\n")
             if num_of_ships > 36:
-                raise ValueError(f"{num_of_ships} is too many ships, please try again.")
+                raise ValueError(f"{num_of_ships} is too many ships, please try again.\n")
             return num_of_ships
         except ValueError as ve:
             print(f"Invalid input: {ve}")
@@ -99,9 +99,10 @@ def main():
     num_of_ships = get_num_of_ships() 
     populate_grid(num_of_ships)     
     while True:
+        print_grid(player_name)
         shot = get_shot()
         valid_shot = validate_shot(shot)
-        print_grid(player_name)
+        
    
 
 print("_"*30)
