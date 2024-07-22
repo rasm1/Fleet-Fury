@@ -7,9 +7,9 @@ ships = []
 guesses = hit + miss
 
 
-def print_grid(player_name): #dr codie youtube
+def print_grid(player_name): 
     """
-    prints the play grid
+    Prints the play grid
     """
     print(f"{player_name}'s grid:")
     print("    0 ","  1 ","  2  "," 3  "," 4  "," 5  ")
@@ -28,24 +28,24 @@ def print_grid(player_name): #dr codie youtube
             
             row += ch
             location = location + 1
-        print(x, " ",row)
+        print(x, " ", row)
 
 
 def get_shot(): 
     valid_shot = False
     while not valid_shot:
         try:
-            shot = input("please choose a location:")
+            shot = input("Please choose a location between 0 and 35:")
             shot = int(shot)
-            if shot < 0 or shot > GRID_SIZE * GRID_SIZE:
-                print("incorrect shot, please try again")
+            if shot < 0 or shot >= GRID_SIZE * GRID_SIZE:
+                print("Incorrect shot, please try again.")
             elif shot in guesses:
-                print("You have already shot at that location")
+                print("You have already shot at that location.")
             else:
                 valid_shot = True
                 break
         except ValueError:
-            print("invalid guess ,please try again")
+            print("Invalid guess ,please try again.")
     return shot
 
 def validate_shot(shot):
@@ -53,9 +53,10 @@ def validate_shot(shot):
     if shot in ships:
         hit.append(shot)
         ships.remove(shot)
+        print("Hit!")
     else:
         miss.append(shot)
-
+        print("Miss!")
 
 def get_num_of_ships():
     """
@@ -113,6 +114,3 @@ print("A console based battleships game")
 print("_"*30)
 
 main()
-
-
-
