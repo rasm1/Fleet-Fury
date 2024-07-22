@@ -26,7 +26,9 @@ def print_computer_grid():
             if location in miss:
                 ch = " / "
             elif location in hit:
-                ch = " X "           
+                ch = " X " 
+            elif location in ships:
+                ch = " @ "             
             row += ch
             location = location + 1
         print(x, " ", row)
@@ -78,7 +80,7 @@ def get_computer_shot():
 
 def validate_shot(shot,computer_shot):
    
-    if shot in ships:
+    if shot in computer_ships:
         hit.append(shot)
         ships.remove(shot)
         print("Hit!")
@@ -86,7 +88,7 @@ def validate_shot(shot,computer_shot):
         miss.append(shot)
         print("Miss!")
     
-    if computer_shot in computer_ships:
+    if computer_shot in ships:
         computer_hit.append(computer_shot)
         computer_ships.remove(computer_shot)
         print("Computer Hit!")
@@ -115,15 +117,17 @@ def get_num_of_ships():
         except ValueError as ve:
             print(f"Invalid input: {ve}")
 
-
-        
+    
 
 def populate_grid(num_of_ships):
     for ship in range(num_of_ships):
        ship_location = randint(0,35)
        ships.append(ship_location)
-    print(ships)
 
+def populate_computer_grid(num_of_ships):
+ for ship in range(num_of_ships):
+       ship_location = randint(0,35)
+       computer_ships.append(ship_location)
 
 
         
@@ -144,7 +148,8 @@ def main():
     print("_"*30)
     player_name = RunGame()
     num_of_ships = get_num_of_ships() 
-    populate_grid(num_of_ships)     
+    populate_grid(num_of_ships)   
+    populate_computer_grid(num_of_ships)  
     while True:
         print_computer_grid()
         print_grid(player_name)
