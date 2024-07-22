@@ -91,8 +91,9 @@ def validate_shot(shot,computer_shot):
         computer_ships.remove(computer_shot)
         print("Computer Hit!")
     else:
-        miss.append(computer_shot)
+        computer_miss.append(computer_shot)
         print("Computer Miss!")
+    print("computer shot is = ", computer_shot)
 
 def get_num_of_ships():
     """
