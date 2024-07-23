@@ -27,7 +27,7 @@ def print_computer_grid():
                 ch = " / "
             elif location in hit:
                 ch = " X " 
-            elif location in ships:
+            elif location in computer_ships:
                 ch = " @ "             
             row += ch
             location = location + 1
@@ -119,9 +119,7 @@ def get_num_of_ships():
 
     
 
-def populate_grid(num_of_ships):
-    global ships  
-    ships = []  
+def populate_grid(num_of_ships): 
     for ship in range(num_of_ships):
        ship_location = randint(0,35)
        ships.append(ship_location)
@@ -129,13 +127,12 @@ def populate_grid(num_of_ships):
             ship_location = randint(0, 35)  
 
 def populate_computer_grid(num_of_ships):
-    global computer_ships
-    computer_ships = []
     for ship in range(num_of_ships):
-       ship_location = randint(0,35)
-       computer_ships.append(ship_location)
-       while ship_location in computer_ships:
-            ship_location = randint(0, 35)  
+        ship_location = randint(0, 35)
+        while ship_location in computer_ships:
+            ship_location = randint(0, 35)
+        computer_ships.append(ship_location)
+
 
         
 
