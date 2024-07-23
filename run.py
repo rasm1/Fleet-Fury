@@ -117,22 +117,24 @@ def get_num_of_ships():
 
     
 
-def populate_grid(num_of_ships): 
-    for ship in range(num_of_ships):
-       ship_location = randint(0,35)
-       ships.append(ship_location)
-       while ship_location in ships:
-            ship_location = randint(0, 35)  
+
+def populate_grid(num_of_ships):
+    global ships  
+    ships = []  
+    while len(ships) < num_of_ships:
+        ship_location = randint(0, 35)
+        if ship_location not in ships:
+            ships.append(ship_location)
+    print("Player ships:", ships)
 
 def populate_computer_grid(num_of_ships):
-    for ship in range(num_of_ships):
+    global computer_ships
+    computer_ships = []
+    while len(computer_ships) < num_of_ships:
         ship_location = randint(0, 35)
-        while ship_location in computer_ships:
-            ship_location = randint(0, 35)
-        computer_ships.append(ship_location)
-
-
-        
+        if ship_location not in computer_ships:
+            computer_ships.append(ship_location)
+    print("Computer ships:", computer_ships)
 
 
 def RunGame():
