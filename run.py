@@ -26,9 +26,7 @@ def print_computer_grid():
             if location in miss:
                 ch = " / "
             elif location in hit:
-                ch = " X " 
-            elif location in computer_ships:
-                ch = " @ "             
+                ch = " X "              
             row += ch
             location = location + 1
         print(x, " ", row)
