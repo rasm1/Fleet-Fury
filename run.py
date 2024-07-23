@@ -4,7 +4,7 @@ GRID_SIZE = 6
 hit = []
 miss = []
 ships = []
-guesses = hit + miss
+guesses = []
 
 computer_hit = []
 computer_miss = []
@@ -68,7 +68,7 @@ def get_shot():
                 valid_shot = True
                 break
         except ValueError:
-            print("Invalid guess ,please try again.")
+            print("Invalid guess, please try again.")
     return shot
 
 def get_computer_shot():
@@ -76,24 +76,35 @@ def get_computer_shot():
     return computer_shot
     
 
-def validate_shot(shot,computer_shot):
-   
+def validate_shot(shot,computer_shot,num_of_ships):
+    sunk_count = 0   
+    guesses.append(shot)
     if shot in computer_ships:
         hit.append(shot)
         computer_ships.remove(shot)
         print("Hit!")
+        sunk_count += 1
     else:
         miss.append(shot)
         print("Miss!")
     
+    computer_sunk_count = 0
     if computer_shot in ships:
         computer_hit.append(computer_shot)
         ships.remove(computer_shot)
         print("Computer Hit!")
+        computer_sunk_count += 1
     else:
         computer_miss.append(computer_shot)
         print("Computer Miss!")
     print("computer shot is = ", computer_shot)
+
+    if sunk_count >= num_of_ships:
+        print("YOU WIN")
+        RunGame()
+    elif computer_sunk_count >= num_of_ships:
+        print("YOU LOSE")
+        RunGame
 
 def get_num_of_ships():
     """
@@ -119,8 +130,6 @@ def get_num_of_ships():
 
 
 def populate_grid(num_of_ships):
-    global ships  
-    ships = []  
     while len(ships) < num_of_ships:
         ship_location = randint(0, 35)
         if ship_location not in ships:
@@ -128,8 +137,6 @@ def populate_grid(num_of_ships):
     print("Player ships:", ships)
 
 def populate_computer_grid(num_of_ships):
-    global computer_ships
-    computer_ships = []
     while len(computer_ships) < num_of_ships:
         ship_location = randint(0, 35)
         if ship_location not in computer_ships:
@@ -138,7 +145,10 @@ def populate_computer_grid(num_of_ships):
 
 
 def RunGame():
-   
+    print("_"*30)
+    print("Welcome to Fleet fury")
+    print("A console based battleships game")
+    print("_"*30)
     player_name = input("please enter your name here:") # split up in diffrent function
     if player_name == "":
         player_name = "commander no-name"
@@ -146,10 +156,7 @@ def RunGame():
 
 
 def main():
-    print("_"*30)
-    print("Welcome to Fleet fury")
-    print("A console based battleships game")
-    print("_"*30)
+   
     player_name = RunGame()
     num_of_ships = get_num_of_ships() 
     populate_grid(num_of_ships)   
@@ -159,7 +166,7 @@ def main():
         print_grid(player_name)
         shot = get_shot()
         computer_shot = get_computer_shot()
-        valid_shot = validate_shot(shot,computer_shot)
+        valid_shot = validate_shot(shot,computer_shot,num_of_ships)
         
         
    
