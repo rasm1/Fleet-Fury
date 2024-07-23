@@ -16,7 +16,7 @@ def print_computer_grid():
     Prints the play grid for the computer
     """
     print("computer's grid:")
-    print("    0 ","  1 ","  2  "," 3  "," 4  "," 5  ")
+    print("     0 ","1 ","2 ","3 ","4"," 5  ")
 
     location = 0
     for x in range(6):
@@ -36,7 +36,7 @@ def print_grid(player_name):
     Prints the play grid for the player
     """
     print(f"{player_name}'s grid:")
-    print("    0 ","  1 ","  2  "," 3  "," 4  "," 5  ")
+    print("     0 ","1 ","2 ","3 ","4"," 5  ")
 
     location = 0
     for x in range(6):
@@ -51,7 +51,7 @@ def print_grid(player_name):
                 ch = " @ "
             row += ch
             location = location + 1
-        print(x, " ", row)
+        print(location -6,"-",location-1,"  ", row)
 
 
 def get_shot(): 
