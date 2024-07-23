@@ -76,36 +76,34 @@ def get_computer_shot():
     return computer_shot
     
 
-def validate_shot(shot,computer_shot,num_of_ships):
-    sunk_count = 0   
+def validate_shot(shot,computer_shot,num_of_ships):    
     guesses.append(shot)
     if shot in computer_ships:
         hit.append(shot)
         computer_ships.remove(shot)
         print("Hit!")
-        sunk_count += 1
+        
     else:
         miss.append(shot)
         print("Miss!")
     
-    computer_sunk_count = 0
+    
     if computer_shot in ships:
         computer_hit.append(computer_shot)
         ships.remove(computer_shot)
         print("Computer Hit!")
-        computer_sunk_count += 1
+        
     else:
         computer_miss.append(computer_shot)
         print("Computer Miss!")
-    print("computer shot is = ", computer_shot)
 
-    if sunk_count >= num_of_ships:
+    if len(computer_ships) == 0:
         print("YOU WIN")
-        RunGame()
-    elif computer_sunk_count >= num_of_ships:
+        return True
+    elif len(ships) == 0:
         print("YOU LOSE")
-        RunGame
-
+        return True
+    return False
 def get_num_of_ships():
     """
     Get number of ships and validates input
@@ -166,10 +164,11 @@ def main():
         print_grid(player_name)
         shot = get_shot()
         computer_shot = get_computer_shot()
-        valid_shot = validate_shot(shot,computer_shot,num_of_ships)
+        game_over = validate_shot(shot,computer_shot,num_of_ships)
+        if game_over:
+            break
         
         
-   
 
 
 main()
