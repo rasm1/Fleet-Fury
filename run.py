@@ -29,7 +29,8 @@ def print_computer_grid():
                 ch = " X "              
             row += ch
             location = location + 1
-        print(x, " ", row)
+        print(location -6,"-",location-1," ", row,)
+    print("\n")
 
 def print_grid(player_name): 
     """
@@ -39,7 +40,7 @@ def print_grid(player_name):
     print("     0 ","1 ","2 ","3 ","4"," 5  ")
 
     location = 0
-    for x in range(6):
+    for x in range(GRID_SIZE):
         row = ""
         for y in range(6):
             ch = " _ "
@@ -50,15 +51,16 @@ def print_grid(player_name):
             elif location in ships:
                 ch = " @ "
             row += ch
-            location = location + 1
-        print(location -6,"-",location-1,"  ", row)
+            location += 1
+        print(location -6,"-",location-1," ", row)
+        
 
 
 def get_shot(): 
     valid_shot = False
     while not valid_shot:
         try:
-            shot = input("Please choose a location between 0 and 35:")
+            shot = input("Please choose a location between 0 and 35:\n")
             shot = int(shot)
             if shot < 0 or shot >= GRID_SIZE * GRID_SIZE:
                 print("Incorrect shot, please try again.")
@@ -110,7 +112,7 @@ def get_num_of_ships():
     """  
     while True:
         try:
-            num_of_ships = input("Please enter the amount of ships you want to play with (0 - 36): ")
+            num_of_ships = input("Please enter the amount of ships you want to play with (0 - 36): \n")
             if num_of_ships == "":
                 raise ValueError("Please choose an amount of ships higher than 0.\n")
             if "." in num_of_ships:
@@ -122,7 +124,7 @@ def get_num_of_ships():
                 raise ValueError(f"{num_of_ships} is too many ships, please try again.\n")
             return num_of_ships
         except ValueError as ve:
-            print(f"Invalid input: {ve}")
+            print(f"Invalid input: {ve}\n")
 
     
 
@@ -132,14 +134,12 @@ def populate_grid(num_of_ships):
         ship_location = randint(0, 35)
         if ship_location not in ships:
             ships.append(ship_location)
-    print("Player ships:", ships)
 
 def populate_computer_grid(num_of_ships):
     while len(computer_ships) < num_of_ships:
         ship_location = randint(0, 35)
         if ship_location not in computer_ships:
             computer_ships.append(ship_location)
-    print("Computer ships:", computer_ships)
 
 
 def RunGame():
@@ -147,7 +147,7 @@ def RunGame():
     print("Welcome to Fleet fury")
     print("A console based battleships game")
     print("_"*30)
-    player_name = input("please enter your name here:") # split up in diffrent function
+    player_name = input("please enter your name here: \n") # split up in diffrent function
     if player_name == "":
         player_name = "commander no-name"
     return player_name
