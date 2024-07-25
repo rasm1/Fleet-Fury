@@ -28,6 +28,8 @@ def print_grid(player_name):
     print(f"{player_name}'s grid: \n")
 
     location = 0
+    
+    grid_data = ""
     for x in range(GRID_SIZE):
         row = ""
         for y in range(GRID_SIZE):
@@ -40,7 +42,16 @@ def print_grid(player_name):
                 ch = " @ "
             row += ch
             location += 1
-        print(location - 6, "-", location - 1, " ", row)
+        grid_data = [
+        ["The Grid"],
+        ["0 - 5", row],
+        ]
+        table = AsciiTable(grid_data)
+        print(table.table)
+        
+
+            
+      #  print(location - 6, "-", location - 1, " ", row)
     print("\n")
 
 
@@ -61,7 +72,14 @@ def print_computer_grid():
                 ch = " X "
             row += ch
             location += 1
-        print(location - 6, "-", location - 1, " ", row,) #Add result to global var, print the global var wher there \n
+        location_string = str((location - 6)) + "-" + str((location - 1))
+        # max length of 10 characters
+        length_difference = 7 - len(location_string)
+        if (length_difference > 0):
+            for x in range(length_difference):
+                location_string = location_string + (" ")
+        print(location_string, row,) #Add result to global var, print the global var wher there \n
+        
     
 
 
@@ -185,8 +203,6 @@ def RunGame():
     while True:
         player_name = input("please enter your name here: \n")
         try:
-            if player_name == "":
-                player_name = "commander no-name"
             if player_name.isalpha() == False:
                 raise ValueError("name can only contain letters\n")  
             if len(player_name) < 3:
