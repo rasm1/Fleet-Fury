@@ -39,7 +39,7 @@ def print_grid(player_name):
                 ch = " @ "
             row += ch
             location += 1
-        print(location -6, "-", location-1, " ", row)
+        print(location - 6, "-", location - 1, " ", row)
 
 
 def print_computer_grid():
@@ -60,7 +60,7 @@ def print_computer_grid():
                 ch = " X "
             row += ch
             location = location + 1
-        print(location -6, "-", location-1, " ", row,)
+        print(location - 6, "-", location - 1, " ", row,)
     print("\n")
 
 
@@ -127,22 +127,23 @@ def check_shot(shot, computer_shot, num_of_ships):
         return True
     return False
 
+
 def get_num_of_ships():
     """
     Gets number of ships and validates input
     """
     while True:
         try:
-            num_of_ships = input("Please enter the amount of ships you want to play with (0 - 36): \n")
+            num_of_ships = input("Please enter desired amount of ships: \n")
             if num_of_ships == "":
-                raise ValueError("Please choose an amount of ships higher than 0.\n")
+                raise ValueError("You must have at least 1 ship\n")
             if "." in num_of_ships:
-                raise ValueError(f"{num_of_ships} is a decimal, please try again.\n")
+                raise ValueError(f"{num_of_ships} Must be a whole number\n")
             num_of_ships = int(num_of_ships)
             if num_of_ships <= 0:
-                raise ValueError("Negative number or 0 was entered, please try again.\n")
+                raise ValueError("Must be a positive number \n")
             if num_of_ships > 36:
-                raise ValueError(f"{num_of_ships} is too many ships, please try again.\n")
+                raise ValueError(f"{num_of_ships} Too many ships\n")
             return num_of_ships
         except ValueError as ve:
             print(f"Invalid input: {ve}\n")
@@ -150,7 +151,8 @@ def get_num_of_ships():
 
 def populate_grid(num_of_ships):
     """
-    populates the player grid by randomly placing ships, also checks for duplicate placements
+    populates the player grid by randomly placing ships
+    also checks for duplicate placements
     """
 
     while len(ships) < num_of_ships:
@@ -158,9 +160,11 @@ def populate_grid(num_of_ships):
         if ship_location not in ships:
             ships.append(ship_location)
 
+
 def populate_computer_grid(num_of_ships):
     """
-    populates the player grid by randomly placing ships, also checks for duplicate placements
+    populates the player grid by randomly placing ships
+     also checks for duplicate placements
     """
     while len(computer_ships) < num_of_ships:
         ship_location = randint(0, 35)
