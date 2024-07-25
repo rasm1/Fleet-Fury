@@ -1,4 +1,5 @@
 from random import randint
+from terminaltables import AsciiTable
 
 # constant
 GRID_SIZE = 6
