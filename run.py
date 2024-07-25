@@ -1,13 +1,13 @@
 from random import randint
 
-# Global variables for player and grid_size
+# constant
 GRID_SIZE = 6
+# Global variables for player and computer
 hit = []
 miss = []
 ships = []
 guesses = []
 
-# Global variables for computer
 computer_hit = []
 computer_miss = []
 computer_ships = []
@@ -20,15 +20,15 @@ computer_guesses = computer_hit + computer_miss
 
 def print_computer_grid(): 
     """
-    Prints the play grid for the computer and adds logical
+    Prints the play grid for the computer and logic for ships display
     """
     print("computer's grid:")
     print("     0 ","1 ","2 ","3 ","4"," 5  ")
 
     location = 0
-    for x in range(6):
+    for x in range(GRID_SIZE):
         row = ""
-        for y in range(6):
+        for y in range(GRID_SIZE):
             ch = " _ "
             if location in miss:
                 ch = " / "
@@ -49,7 +49,7 @@ def print_grid(player_name):
     location = 0
     for x in range(GRID_SIZE):
         row = ""
-        for y in range(6):
+        for y in range(GRID_SIZE):
             ch = " _ "
             if location in computer_miss:
                 ch = " / "
@@ -183,9 +183,9 @@ def RunGame():
 
 
 def main():
-   """
-   main() function, contains game loop
-   """
+    """
+    main() function, contains game loop and game loop break
+    """
     player_name = RunGame()
     num_of_ships = get_num_of_ships() 
     populate_grid(num_of_ships)   
