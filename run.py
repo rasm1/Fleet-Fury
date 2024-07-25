@@ -65,7 +65,7 @@ def print_grid(player_name):
 
 def get_shot(): 
     """
-    gets and validates the shot
+    gets and validates the shot for the player
     """
     valid_shot = False
     while not valid_shot:
@@ -85,10 +85,11 @@ def get_shot():
 
 def get_computer_shot():
     """
-    generates computer shot randomly
+    generates computer shot randomly and checks for duplicates
     """
     computer_shot = randint(0,35)
-    return computer_shot
+    if computer_shot not in guesses:
+        return computer_shot
     
 
 def check_shot(shot,computer_shot,num_of_ships): 
@@ -127,7 +128,7 @@ def check_shot(shot,computer_shot,num_of_ships):
     
 def get_num_of_ships():
     """
-    Get number of ships and validates input
+    Gets number of ships and validates input
     """  
     while True:
         try:
