@@ -142,8 +142,8 @@ def get_num_of_ships():
             num_of_ships = int(num_of_ships)
             if num_of_ships <= 0:
                 raise ValueError("Must be a positive number \n")
-            if num_of_ships > 36:
-                raise ValueError(f"{num_of_ships} Too many ships\n")
+            if num_of_ships > 10:
+                raise ValueError(f"{num_of_ships} is too many ships\n")
             return num_of_ships
         except ValueError as ve:
             print(f"Invalid input: {ve}\n")
@@ -187,11 +187,11 @@ def RunGame():
             if player_name == "":
                 player_name = "commander no-name"
             if player_name.isalpha() == False:
-                raise ValueError("name can only contain letters")  
+                raise ValueError("name can only contain letters\n")  
             if len(player_name) < 3:
-                raise ValueError("name is too short")
+                raise ValueError("name is too short\n")
             if len(player_name) > 15:
-                raise ValueError("name is too long") 
+                raise ValueError("name is too long\n") 
         except ValueError as ve :
             print(f"Invalid input: {ve}\n")         
         else:
