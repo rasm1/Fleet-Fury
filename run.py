@@ -26,10 +26,7 @@ def print_grid(player_name):
     Prints the play grid for the player
     """
     print(f"{player_name}'s grid: \n")
-
     location = 0
-    
-    grid_data = ""
     for x in range(GRID_SIZE):
         row = ""
         for y in range(GRID_SIZE):
@@ -42,12 +39,13 @@ def print_grid(player_name):
                 ch = " @ "
             row += ch
             location += 1
-        grid_data = [
-        ["The Grid"],
-        ["0 - 5", row],
-        ]
-        table = AsciiTable(grid_data)
-        print(table.table)
+        location_string = str((location - 6)) + "-" + str((location - 1))
+        # max length of 7 characters
+        length_difference = 7 - len(location_string)
+        if (length_difference > 0):
+            for x in range(length_difference):
+                location_string = location_string + (" ")
+        print(location_string, row,) 
         
 
             
@@ -60,7 +58,6 @@ def print_computer_grid():
     Prints the play grid for the computer and logic for ships display
     """
     print("computer's grid: \n")
-
     location = 0
     for x in range(GRID_SIZE):
         row = ""
@@ -73,12 +70,12 @@ def print_computer_grid():
             row += ch
             location += 1
         location_string = str((location - 6)) + "-" + str((location - 1))
-        # max length of 10 characters
+        # max length of 7 characters
         length_difference = 7 - len(location_string)
         if (length_difference > 0):
             for x in range(length_difference):
                 location_string = location_string + (" ")
-        print(location_string, row,) #Add result to global var, print the global var wher there \n
+        print(location_string, row,)
         
     
 
