@@ -18,33 +18,13 @@ computer_guesses = computer_hit + computer_miss
 # / = MISS
 # _ = EMPTY
 
-def print_computer_grid(): 
-    """
-    Prints the play grid for the computer and logic for ships display
-    """
-    print("computer's grid:")
-    print("     0 ","1 ","2 ","3 ","4"," 5  ")
 
-    location = 0
-    for x in range(GRID_SIZE):
-        row = ""
-        for y in range(GRID_SIZE):
-            ch = " _ "
-            if location in miss:
-                ch = " / "
-            elif location in hit:
-                ch = " X "              
-            row += ch
-            location = location + 1
-        print(location -6,"-",location-1," ", row,)
-    print("\n")
-
-def print_grid(player_name): 
+def print_grid(player_name):
     """
     Prints the play grid for the player
     """
     print(f"{player_name}'s grid:")
-    print("     0 ","1 ","2 ","3 ","4"," 5  ")
+    print("     0 ", "1 ", "2 ", "3 ", "4", " 5  ")
 
     location = 0
     for x in range(GRID_SIZE):
@@ -59,11 +39,32 @@ def print_grid(player_name):
                 ch = " @ "
             row += ch
             location += 1
-        print(location -6,"-",location-1," ", row)
-        
+        print(location -6, "-", location-1, " ", row)
 
 
-def get_shot(): 
+def print_computer_grid():
+    """
+    Prints the play grid for the computer and logic for ships display
+    """
+    print("computer's grid:")
+    print("     0 ",  "1 ", "2 ", "3 ", "4", " 5  ")
+
+    location = 0
+    for x in range(GRID_SIZE):
+        row = ""
+        for y in range(GRID_SIZE):
+            ch = " _ "
+            if location in miss:
+                ch = " / "
+            elif location in hit:
+                ch = " X "
+            row += ch
+            location = location + 1
+        print(location -6, "-", location-1, " ", row,)
+    print("\n")
+
+
+def get_shot():
     """
     gets and validates the shot for the player
     """
@@ -83,16 +84,17 @@ def get_shot():
             print("Invalid guess, please try again.")
     return shot
 
+
 def get_computer_shot():
     """
     generates computer shot randomly and checks for duplicates
     """
-    computer_shot = randint(0,35)
+    computer_shot = randint(0, 35)
     if computer_shot not in guesses:
         return computer_shot
-    
 
-def check_shot(shot,computer_shot,num_of_ships): 
+
+def check_shot(shot, computer_shot, num_of_ships):
     """
     checks to see if shots are hit/miss and
     checks to see if all ships were sunk, if so ends the game
@@ -103,17 +105,16 @@ def check_shot(shot,computer_shot,num_of_ships):
         hit.append(shot)
         computer_ships.remove(shot)
         print("Hit!")
-        
+
     else:
         miss.append(shot)
         print("Miss!")
-    
-    
+
     if computer_shot in ships:
         computer_hit.append(computer_shot)
         ships.remove(computer_shot)
         print("Computer Hit!")
-        
+
     else:
         computer_miss.append(computer_shot)
         print("Computer Miss!")
@@ -125,11 +126,11 @@ def check_shot(shot,computer_shot,num_of_ships):
         print("YOU LOSE")
         return True
     return False
-    
+
 def get_num_of_ships():
     """
     Gets number of ships and validates input
-    """  
+    """
     while True:
         try:
             num_of_ships = input("Please enter the amount of ships you want to play with (0 - 36): \n")
@@ -145,8 +146,6 @@ def get_num_of_ships():
             return num_of_ships
         except ValueError as ve:
             print(f"Invalid input: {ve}\n")
-
-    
 
 
 def populate_grid(num_of_ships):
@@ -177,7 +176,7 @@ def RunGame():
     print("Welcome to Fleet fury")
     print("A console based battleships game")
     print("_"*30)
-    player_name = input("please enter your name here: \n") 
+    player_name = input("please enter your name here: \n")
     if player_name == "":
         player_name = "commander no-name"
     return player_name
@@ -188,17 +187,17 @@ def main():
     main() function, contains game loop and game loop break
     """
     player_name = RunGame()
-    num_of_ships = get_num_of_ships() 
-    populate_grid(num_of_ships)   
-    populate_computer_grid(num_of_ships)  
+    num_of_ships = get_num_of_ships()
+    populate_grid(num_of_ships)
+    populate_computer_grid(num_of_ships)
     while True:
-        print_computer_grid()
         print_grid(player_name)
+        print_computer_grid()
         shot = get_shot()
         computer_shot = get_computer_shot()
-        game_over = check_shot(shot,computer_shot,num_of_ships)
+        game_over = check_shot(shot, computer_shot, num_of_ships)
         if game_over:
             break
-        
+
 
 main()
