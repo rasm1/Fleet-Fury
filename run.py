@@ -13,18 +13,18 @@ computer_miss = []
 computer_ships = []
 computer_guesses = computer_hit + computer_miss
 
-# legends:
+# legend:
+# @ = ship
 # x = HIT
 # / = MISS
 # _ = EMPTY
 
 
-def print_grid(player_name):
+def print_grid(player_name): 
     """
     Prints the play grid for the player
     """
-    print(f"{player_name}'s grid:")
-    print("     0 ", "1 ", "2 ", "3 ", "4", " 5  ")
+    print(f"{player_name}'s grid: \n")
 
     location = 0
     for x in range(GRID_SIZE):
@@ -40,14 +40,14 @@ def print_grid(player_name):
             row += ch
             location += 1
         print(location - 6, "-", location - 1, " ", row)
+    print("\n")
 
 
 def print_computer_grid():
     """
     Prints the play grid for the computer and logic for ships display
     """
-    print("computer's grid:")
-    print("     0 ",  "1 ", "2 ", "3 ", "4", " 5  ")
+    print("computer's grid: \n")
 
     location = 0
     for x in range(GRID_SIZE):
@@ -59,9 +59,9 @@ def print_computer_grid():
             elif location in hit:
                 ch = " X "
             row += ch
-            location = location + 1
-        print(location - 6, "-", location - 1, " ", row,)
-    print("\n")
+            location += 1
+        print(location - 6, "-", location - 1, " ", row,) #Add result to global var, print the global var wher there \n
+    
 
 
 def get_shot():
@@ -90,7 +90,7 @@ def get_computer_shot():
     generates computer shot randomly and checks for duplicates
     """
     computer_shot = randint(0, 35)
-    if computer_shot not in guesses:
+    if computer_shot not in computer_guesses:
         return computer_shot
 
 
@@ -119,7 +119,7 @@ def check_shot(shot, computer_shot, num_of_ships):
         computer_miss.append(computer_shot)
         print("Computer Miss!")
 
-    if len(computer_ships) == 0:
+    if len(computer_ships) == 0: # seperate win condition in diffrent function
         print("YOU WIN")
         return True
     elif len(ships) == 0:
@@ -163,8 +163,8 @@ def populate_grid(num_of_ships):
 
 def populate_computer_grid(num_of_ships):
     """
-    populates the player grid by randomly placing ships
-     also checks for duplicate placements
+    populates the computer grid by randomly placing ships
+    also checks for duplicate placements
     """
     while len(computer_ships) < num_of_ships:
         ship_location = randint(0, 35)
@@ -175,15 +175,27 @@ def populate_computer_grid(num_of_ships):
 def RunGame():
     """
     prints welcome message and starts game by asking the player's name
+    also validates playername
     """
     print("_"*30)
     print("Welcome to Fleet fury")
     print("A console based battleships game")
     print("_"*30)
-    player_name = input("please enter your name here: \n")
-    if player_name == "":
-        player_name = "commander no-name"
-    return player_name
+    while True:
+        player_name = input("please enter your name here: \n")
+        try:
+            if player_name == "":
+                player_name = "commander no-name"
+            if player_name.isalpha() == False:
+                raise ValueError("name can only contain letters")  
+            if len(player_name) < 3:
+                raise ValueError("name is too short")
+            if len(player_name) > 15:
+                raise ValueError("name is too long") 
+        except ValueError as ve :
+            print(f"Invalid input: {ve}\n")         
+        else:
+            return player_name
 
 
 def main():

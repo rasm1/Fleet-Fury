@@ -25,3 +25,5 @@ Fleet Fury is a python terminal based Battleships game which runs in the Code In
  The player and computer take turns shooting untill one or the other has no more ships left. The participant who sinks all of their oponant's ships wins the game.
 
  ## features
+ # existing features
+ 
