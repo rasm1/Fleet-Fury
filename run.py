@@ -183,18 +183,41 @@ def populate_computer_grid(num_of_ships):
             computer_ships.append(ship_location)
 
 def show_menu():
+    print("Menu :")
+    print("type 1 if you would like to see the rules")
+    print("type 2 if you would like to play the game")
+    print("type 3 if you would like to quit the game")
+    print("_"*50)
+    menu_choice = input("Please enter your choice")
+    if menu_choice == "1":
+        show_rules()
+    if menu_choice == "2":
+        RunGame()
+    if menu_choice == "3":
+        quit()
+
+def show_rules():
+    print("_"*50)
+    print("The rules are as follows: ")
+    print("- You will be facing off against the computer in a 1 on 1 game of battleships")
+    print("- both players be presented with a grid")
+    print("- Each player's fleet of warships will be marked")
+    print("- The goal of the game is to sink the other player's fleet")
+    print("- This can be done by shooting at the other players grid")
+    print("- To shoot, the player must enter a number from 0 to 35")
+    print("- Both players alternate turns calling shots at the other player's ships")
+    print("- The game is won when a player sinks the opposing player's entire fleet")
+    print("_"*50)
+
 
 
 
 def RunGame():
     """
-    prints welcome message and starts game by asking the player's name
+    starts game by asking the player's name
     also validates playername
     """
-    print("_"*30)
-    print("Welcome to Fleet fury")
-    print("A console based battleships game")
-    print("_"*30)
+   
     while True:
         player_name = input("please enter your name here: \n")
         try:
@@ -213,7 +236,13 @@ def RunGame():
 def main():
     """
     main() function, contains game loop and game loop break
+    also prints welcome message
     """
+    print("_"*30)
+    print("Welcome to Fleet fury")
+    print("A console based battleships game")
+    print("_"*30)
+    show_menu()
     player_name = RunGame()
     num_of_ships = get_num_of_ships()
     populate_grid(num_of_ships)
