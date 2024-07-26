@@ -182,21 +182,41 @@ def populate_computer_grid(num_of_ships):
         if ship_location not in computer_ships:
             computer_ships.append(ship_location)
 
-def show_menu():
+
+
+def validate_menu_choice():
     print("Menu :")
     print("type 1 if you would like to see the rules")
     print("type 2 if you would like to play the game")
     print("type 3 if you would like to quit the game")
     print("_"*50)
-    menu_choice = input("Please enter your choice")
-    if menu_choice == "1":
+    while True:
+        try:
+            menu_choice = input("Please enter your choice: ")
+            menu_choice = int(menu_choice)
+            if menu_choice < 0 or menu_choice > 3:
+                raise ValueError("Please choose an option between 1 and 3")
+        except ValueError as ve:
+            print(f"Invalid input: {ve}\n")
+        else:
+            return menu_choice
+
+def show_menu(menu_choice):
+    """
+    logic for the menu
+    
+    """
+    if menu_choice == 1:
         show_rules()
-    if menu_choice == "2":
+    if menu_choice == 2:
         RunGame()
-    if menu_choice == "3":
+    if menu_choice == 3:
         quit()
 
 def show_rules():
+    """
+    prints out the rules of the game
+    """
     print("_"*50)
     print("The rules are as follows: ")
     print("- You will be facing off against the computer in a 1 on 1 game of battleships")
@@ -217,7 +237,6 @@ def RunGame():
     starts game by asking the player's name
     also validates playername
     """
-   
     while True:
         player_name = input("please enter your name here: \n")
         try:
@@ -242,7 +261,8 @@ def main():
     print("Welcome to Fleet fury")
     print("A console based battleships game")
     print("_"*30)
-    show_menu()
+    menu_choice = validate_menu_choice()
+    show_menu(menu_choice)
     player_name = RunGame()
     num_of_ships = get_num_of_ships()
     populate_grid(num_of_ships)
