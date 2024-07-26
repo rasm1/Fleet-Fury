@@ -1,5 +1,4 @@
 from random import randint
-from terminaltables import AsciiTable
 
 # constant
 GRID_SIZE = 6
@@ -46,10 +45,6 @@ def print_grid(player_name):
             for x in range(length_difference):
                 location_string = location_string + (" ")
         print(location_string, row,) 
-        
-
-            
-      #  print(location - 6, "-", location - 1, " ", row)
     print("\n")
 
 
@@ -186,6 +181,9 @@ def populate_computer_grid(num_of_ships):
         ship_location = randint(0, 35)
         if ship_location not in computer_ships:
             computer_ships.append(ship_location)
+
+def show_menu():
+
 
 
 def RunGame():
