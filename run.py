@@ -223,7 +223,7 @@ def show_rules():
     """
     print("_"*50)
     print("The rules are as follows: ")
-    print("- You will be facing off against the computer in a 1 on 1 game of battleships")
+    print("- You will be facing off against the computer in a of battleships")
     print("- both players be presented with a grid")
     print("- your fleet of warships will be marked with an @")
     print("- The goal of the game is to sink the other player's fleet")
@@ -231,13 +231,14 @@ def show_rules():
     print("- To shoot, the player must enter a number from 0 to 35")
     print("- if you hit the opponant's ship it will be market with an X")
     print("- if you miss, it will be marked with an /")
-    print("- Both players alternate turns calling shots at the other player's ships")
-    print("- The game is won when a player sinks the opposing player's entire fleet")
+    print("- Both players alternate turns calling shots")
+    print("- The game is won when a player sinks the opponent's entire fleet")
     print("_"*50)
 
 
 def play_again():
-    next_game = input("Would you like to play again? if so press y if not press any key: ")
+    print("Would you like to play again?")
+    next_game = input("if so press y, if not press any key: ")
     if next_game.lower() == "y":
         reset_game_state()
         main()
@@ -249,7 +250,8 @@ def reset_game_state():
     """
     Resets the game state to initial conditions
     """
-    global hit, miss, ships, guesses, computer_hit, computer_miss, computer_ships
+    global hit, miss, ships, guesses, computer_hit
+    global computer_miss, computer_ships
     hit = []
     miss = []
     ships = []
@@ -267,7 +269,7 @@ def RunGame():
     while True:
         player_name = input("please enter your name here: \n")
         try:
-            if player_name.isalpha() == False:
+            if player_name.isalpha() is False:
                 raise ValueError("name can only contain letters\n")
             if len(player_name) < 3:
                 raise ValueError("name is too short\n")
