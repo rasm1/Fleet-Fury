@@ -20,7 +20,7 @@ computer_guesses = computer_hit + computer_miss
 # _ = EMPTY
 
 
-def print_grid(player_name): 
+def print_grid(player_name):
     """
     Prints the play grid for the player
     """
@@ -44,7 +44,7 @@ def print_grid(player_name):
         if (length_difference > 0):
             for x in range(length_difference):
                 location_string = location_string + (" ")
-        print(location_string, row,) 
+        print(location_string, row,)
     print("\n")
 
 
@@ -71,8 +71,6 @@ def print_computer_grid():
             for x in range(length_difference):
                 location_string = location_string + (" ")
         print(location_string, row,)
-        
-    
 
 
 def get_shot():
@@ -130,7 +128,7 @@ def check_shot(shot, computer_shot, num_of_ships):
         computer_miss.append(computer_shot)
         print("Computer Miss!")
 
-    if len(computer_ships) == 0: 
+    if len(computer_ships) == 0:
         print("YOU WIN")
         play_again()
 
@@ -186,7 +184,6 @@ def populate_computer_grid(num_of_ships):
             computer_ships.append(ship_location)
 
 
-
 def validate_menu_choice():
     """
     validates player menu choice
@@ -207,10 +204,10 @@ def validate_menu_choice():
         else:
             return menu_choice
 
+
 def show_menu(menu_choice):
     """
     logic for the menu
-    
     """
     if menu_choice == 1:
         show_rules()
@@ -218,6 +215,7 @@ def show_menu(menu_choice):
         pass
     if menu_choice == 3:
         quit()
+
 
 def show_rules():
     """
@@ -237,6 +235,7 @@ def show_rules():
     print("- The game is won when a player sinks the opposing player's entire fleet")
     print("_"*50)
 
+
 def play_again():
     next_game = input("Would you like to play again? if so press y if not press any key: ")
     if next_game.lower() == "y":
@@ -244,6 +243,7 @@ def play_again():
         main()
     else:
         quit()
+
 
 def reset_game_state():
     """
@@ -268,13 +268,13 @@ def RunGame():
         player_name = input("please enter your name here: \n")
         try:
             if player_name.isalpha() == False:
-                raise ValueError("name can only contain letters\n")  
+                raise ValueError("name can only contain letters\n")
             if len(player_name) < 3:
                 raise ValueError("name is too short\n")
             if len(player_name) > 15:
-                raise ValueError("name is too long\n") 
-        except ValueError as ve :
-            print(f"Invalid input: {ve}\n")         
+                raise ValueError("name is too long\n")
+        except ValueError as ve:
+            print(f"Invalid input: {ve}\n")
         else:
             return player_name
 
@@ -303,5 +303,6 @@ def main():
         game_over = check_shot(shot, computer_shot, num_of_ships)
         if game_over:
             break
+
 
 main()
