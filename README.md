@@ -6,47 +6,9 @@ Fleet Fury is a python terminal based Battleships game which runs in the Code In
 
  [View the Fleet Fury project here](https://fleet-fury-f6bd1fd3ac6c.herokuapp.com)
 
- ![Am I Responsive](images/am-i-responsive.png)
+ ![Welcome Screen](assets/images/intro.png)
 
-##Table of contents
- # How to play
-
- # Logic flowchart
-
- # User Experience (UX)
-
- # Features
-
- # Features left to implement
-
- # Design
-
- # Technologies used
-
- # Frameworks, Libraries & programs used
- 
- # Testing
-
- # Manual testing
-
- # Input validation testing
-
- # Fixed bugs
-
- # Deployment
-
- # Deployment to Heroku
-
- # Forking the Github repository
-
- # Local clone
-
- # Credits
-
- # Code
-
- # Content
-
+## How to play
 
  Fleet Fury is based on the classic tabletop game Battleships.
 
@@ -62,7 +24,38 @@ Fleet Fury is a python terminal based Battleships game which runs in the Code In
 
  The player and computer take turns shooting untill one or the other has no more ships left. The participant who sinks all of their oponant's ships wins the game.
 
- ## Log
+## Logic flowchart
+
+![logic flowchart](assets/images/flowchart.png)
+
+## User Experience (UX)
+
+This website is meant to attract people who are interested in playing a game of Battleships.
+
+The game is structured in such a way that playing it for the first time should be seamless.
+
+
+### User Stories
+
+#### First-time visitor goals
+<ul>
+			<li>Understand how the game works. Clear objectives and instructions.</li>
+			<li>To play the game once the rules are read.</li>
+			<li>To enjoy the game/</li>
+</ul>
+
+#### Returning visitor goals
+<ul>		
+			<li>To enjoy the game and play it more than once.</li>
+			<li>To share the game with friends and family.</li>
+			<li>To explore new features if they are implemented.</li>
+</ul>
+
+#### frequent user Goals
+<ul>		
+			<li>To share the game with friends and family.</li>
+			<li>To explore new features if they are implemented.</li>
+</ul>
 
  ## features
  # existing features
