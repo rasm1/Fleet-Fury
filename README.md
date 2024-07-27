@@ -146,6 +146,19 @@ The game is structured in such a way that playing it for the first time should b
     <li>Special powerups that clear multiple locations or give intell</li>
 </ul>	
 
+## Design
+
+### Flowchart
+
+<ul>
+<li>draw.io</li>
+</ul>
+
+## Technologies used
+
+<ul>
+<li>Python</li>
+</ul>
 
 
 
