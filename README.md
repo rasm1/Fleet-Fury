@@ -267,7 +267,7 @@ Testing was done on the display, Name input validation, ship amount input valida
 
 ## Deployment
 
-Deploying to Heroku
+### Deploying to Heroku
 To deploy with Heroku, Code Institute Python Essentials Template was used so the python code can be viewed in a terminal in a browser
 <ol>
 <li>Log in to Heroku or create a new account</li>
@@ -282,3 +282,36 @@ To deploy with Heroku, Code Institute Python Essentials Template was used so the
 <li>Scroll down and select either "Enable Automatic Deploys" or "Manual Deploy"</li>
 <li>Deployed site Fleet Fury</li>
 </ol>
+
+### Forking the GitHub Repository
+By forking the repository, we make a copy of the original repository on our GitHub account to view and change without affecting the original repository by using these steps:
+
+Log in to GitHub and locate GitHub Repository Fleet-Fury
+At the top of the Repository(under the main navigation) locate "Fork" button.
+Now you should have a copy of the original repository in your GitHub account.
+
+### Local Clone
+Log in to GitHub and locate GitHub Repository Fleet-Fury
+Under the repository name click "Clone or download"
+Click on the code button, select clone with HTTPS, SSH or GitHub CLI and copy the link shown.
+Open Git Bash
+Change the current working directory to the location where you want the cloned directory to be made.
+Type git clone and then paste The URL copied in the step 3.
+Press Enter and your local clone will be created.
+
+## Credits
+
+### Code
+<ul>
+<li>I gained understanding of python through code institute lessons.</li>
+<li>I gained more python concepts through trail and error.</li>
+<li>Python 3.11.3 documentation.</li>
+<li>MDN web docs for python Documentation.</li>
+<li>The README was insired by the README of Thomas Tomo Hangman/li>
+<ul>
+
+### Acknowledgements
+
+<ul>
+<li>My mentor Mitko Bachvarov provided me with ample feedback, idea's and support during the development of this project.</li>
+</ul>
