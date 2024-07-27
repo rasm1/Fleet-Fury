@@ -160,6 +160,25 @@ The game is structured in such a way that playing it for the first time should b
 <li>Python</li>
 </ul>
 
+## Frameworks, libraries & programs used
+<ul>
+	<li>gitpod</li>
+	to write the code
+    <li>random</li>
+    library to generate random ints
+	<li>git</li>
+    for version controll
+	<li>Heroku</li>
+	for deployment
+    <li>CI Python Linter</li>
+    To check for any code errors
+</ul>
+
+## Testing
+
+CI Python Linter was used to test run.py
+
+![validation results](assets/images/validation.png)
 
 
 
