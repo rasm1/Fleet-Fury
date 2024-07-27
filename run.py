@@ -237,6 +237,9 @@ def show_rules():
 
 
 def play_again():
+    """
+    prompts the player to play again or quit
+    """
     print("Would you like to play again?")
     next_game = input("if so press y, if not press any key: ")
     if next_game.lower() == "y":
