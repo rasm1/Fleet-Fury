@@ -204,5 +204,10 @@ Testing was done on the display, Name input validation, ship amount input valida
 
 ### Input validation testing
 
+<ul>
+<li>Menu</li>
+<li>cannot leave blank</li>
+<li>cannot be</li>
+</ul>
 
-
+![menu validation](assets/images/menu-validation.png)

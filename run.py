@@ -197,7 +197,7 @@ def validate_menu_choice():
         try:
             menu_choice = input("Please enter your choice: ")
             menu_choice = int(menu_choice)
-            if menu_choice < 0 or menu_choice > 3:
+            if menu_choice <= 0 or menu_choice > 3:
                 raise ValueError("Please choose an option between 1 and 3")
         except ValueError as ve:
             print(f"Invalid input: {ve}\n")
