@@ -138,6 +138,14 @@ The game is structured in such a way that playing it for the first time should b
 
 ![menu](assets/images/play-again.png)
 
+### Features Left to Implement
+<ul>
+	<li>Option for a second player.</li>
+	<li>Scoring system.</li>
+	<li>Option to choose ship locations</li>
+    <li>Special powerups that clear multiple locations or give intell</li>
+</ul>	
+
 
 
 
