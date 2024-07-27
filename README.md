@@ -180,5 +180,29 @@ CI Python Linter was used to test run.py
 
 ![validation results](assets/images/validation.png)
 
+### manual testing
+
+This game was manually tested using the gitpod terminal. 
+After deployment to Heroku it was manually tested again use the Heroku terminal.
+Testing was done on the display, Name input validation, ship amount input validation, shot input validation, grid display and play again feature.
+
+| feature   | expected result | steps taken | actual result |
+| --------- | --------------- | ----------- | ------------- |
+| intro screen | To display welcome message and menu  | none | as expected
+| display rules | To display the rules | input "1" to display | as expected
+| start game | To start the game by prompting user name| input "2" to start the game | as expected
+| quit     | To quit the game if player chooses so | input "3" to quit the game | as expected
+| enter name | To save username and use it in messages | input an alphanumerical username between 3 and 15 letters | as expected
+| enter ship amount | To enter a valid amount of ships to play with | input a integer ship amount between 1 and 10 | as expected
+| enter shot location | To enter a valid shot location | input an integer shot location between 0 and 35 | as expected
+| hit | To display an X at the shot location and update hit list | input a shot location populated by a ship| as expected
+| miss | To display an / at the shot location and update miss list | input a shot location not populated by a ship | as expected
+| already shot at location | To display message that location has been shot at and prompt for new shot | input a location already shot at | as expected
+| win | To display win message and prompt to play again | sink all enemy player's ships | as expected
+| lose | To display lose message and prompt to play again | sink all player's ships | as expected
+| play again | To restart the game and clear all relevent variables | enter y to restart the game, anything else to quit | as expected
+
+### Input validation testing
+
 
 
