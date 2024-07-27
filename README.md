@@ -264,3 +264,21 @@ Testing was done on the display, Name input validation, ship amount input valida
 <li>Grid prints with no player input</li>
 <li>Fixed by correctly checking for player input</li>
 </ul>
+
+## Deployment
+
+Deploying to Heroku
+To deploy with Heroku, Code Institute Python Essentials Template was used so the python code can be viewed in a terminal in a browser
+<ol>
+<li>Log in to Heroku or create a new account</li>
+<li>On the main page click "New" and select "Create new app"</li>
+<li>Choose your unique app name and select your region</li>
+<li>Click "Create app"</li>
+<li>On the next page find "settings" and locate "Config Vars"</li>
+<li>Click "Reveal Config Vars" and add "PORT" key and value "8000", click "Add"</li>
+<li>Scroll down, locate "Buildpack" and click "Add", select "Python"</li>
+<li>Scroll to the top and select "Deploy" tab</li>
+<li>Select GitHub as deployment method and search for your repository and link them together</li>
+<li>Scroll down and select either "Enable Automatic Deploys" or "Manual Deploy"</li>
+<li>Deployed site Fleet Fury</li>
+</ol>
