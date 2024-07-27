@@ -8,7 +8,45 @@ Fleet Fury is a python terminal based Battleships game which runs in the Code In
 
  ![Am I Responsive](images/am-i-responsive.png)
 
- ## How to play
+##Table of contents
+ # How to play
+
+ # Logic flowchart
+
+ # User Experience (UX)
+
+ # Features
+
+ # Features left to implement
+
+ # Design
+
+ # Technologies used
+
+ # Frameworks, Libraries & programs used
+ 
+ # Testing
+
+ # Manual testing
+
+ # Input validation testing
+
+ # Fixed bugs
+
+ # Deployment
+
+ # Deployment to Heroku
+
+ # Forking the Github repository
+
+ # Local clone
+
+ # Credits
+
+ # Code
+
+ # Content
+
 
  Fleet Fury is based on the classic tabletop game Battleships.
 
@@ -23,6 +61,8 @@ Fleet Fury is a python terminal based Battleships game which runs in the Code In
  If the player hits a ship it is indicated by an X. if the player misses their shot it is indicated by a /.
 
  The player and computer take turns shooting untill one or the other has no more ships left. The participant who sinks all of their oponant's ships wins the game.
+
+ ## Log
 
  ## features
  # existing features
