@@ -247,3 +247,20 @@ Testing was done on the display, Name input validation, ship amount input valida
 </ul>
 
 ![menu validation](assets/images/shot-validation.png)
+
+## Fixed bugs
+
+<ul>
+<li>a bug where player could shoot same location</li>
+<li>Fixed by correcting shot input validation</li>
+<li>a bug where inputted ship amount did not generate right amount</li>
+<li>Fixed by checking for ship location duplicates</li>
+<li>computer hit removes computer ships</li>
+<li>Fixed by removing computer_ships instead of ships</li>
+<li>ship amount doubled</li>
+<li>Fixed by seperately populating computer grid and player grid</li>
+<li>Computer got hit with both shots</li>
+<li>Fixed by seperating player and computer grid</li>
+<li>Grid prints with no player input</li>
+<li>Fixed by correctly checking for player input</li>
+</ul>
