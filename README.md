@@ -57,6 +57,88 @@ The game is structured in such a way that playing it for the first time should b
 			<li>To explore new features if they are implemented.</li>
 </ul>
 
- ## features
- # existing features
- 
+ # features
+<ul>   
+	<li>Menu selection. 3 options are presented: rules, play, quit</li>
+	<li>Rules section. Prints out the rules of the game</li>
+	<li>Visual interface. A grid that shows the location of shots, misses and hits</li>
+    <li>Input validation for: Name, number of ships,rules and guesses</li>
+    <li>Win loss detection. Detecs when the player or computer succesfully sunk all enemy ships</li>
+	<li>Play again at the end of the game</li>
+</ul>
+
+ ## existing features
+ <ul>   
+	<li>Intro screen</li>
+	<li>Displays welcome message</li>	
+</ul>
+
+![intro screen](assets/images/intro-message.png)
+  
+<ul>
+		<li>Menu</li>
+        <li>Displays rules
+ </ul>
+
+![menu](assets/images/rules.png)
+
+<ul>
+		<li>Enter a username</li>
+ </ul>
+
+![menu](assets/images/username.png)
+
+<ul>
+		<li>Enter an amount of ships to play with</li>
+ </ul>
+
+![menu](assets/images/ship.png)
+
+<ul>
+		<li>grid for the computer</li>
+        <li>Hides ship location</li>
+ </ul>
+
+![menu](assets/images/computer-grid.png)
+
+<ul>
+		<li>grid for the player</li>
+        <li>ships are marked with an @</li>
+        <li>hits are marked with an X</li>
+        <li>misses are marked with an /</li>
+        <li>unknown locations are marked with an _</li>
+ </ul>
+
+![menu](assets/images/player-grid.png)
+
+<ul>
+		<li>prompts the user for a shooting location</li>
+        <li>location must be an integer between 1 and 35</li>
+ </ul>
+
+![menu](assets/images/shoot.png)
+
+<ul>
+		<li>computer sank all enemy ships</li>
+        <li>message that confirms user has lost</li>
+ </ul>
+
+![menu](assets/images/lose.png)
+
+<ul>
+		<li>user sank all enemy ships</li>
+        <li>message that confirms user has won</li>
+ </ul>
+
+![menu](assets/images/win.png)
+
+<ul>
+		<li>play again</li>
+ </ul>
+
+![menu](assets/images/play-again.png)
+
+
+
+
+
