@@ -132,6 +132,7 @@ def check_shot(shot, computer_shot, num_of_ships):
 
     if len(computer_ships) == 0: # seperate win condition in diffrent function
         print("YOU WIN")
+
         return True
     elif len(ships) == 0:
         print("YOU LOSE")
@@ -185,10 +186,13 @@ def populate_computer_grid(num_of_ships):
 
 
 def validate_menu_choice():
+    """
+    validates player menu choice
+    """
     print("Menu :")
-    print("type 1 if you would like to see the rules")
-    print("type 2 if you would like to play the game")
-    print("type 3 if you would like to quit the game")
+    print("press 1 if you would like to see the rules")
+    print("press 2 if you would like to play the game")
+    print("press 3 if you would like to quit the game")
     print("_"*50)
     while True:
         try:
@@ -209,7 +213,7 @@ def show_menu(menu_choice):
     if menu_choice == 1:
         show_rules()
     if menu_choice == 2:
-        RunGame()
+        pass
     if menu_choice == 3:
         quit()
 
@@ -229,7 +233,12 @@ def show_rules():
     print("- The game is won when a player sinks the opposing player's entire fleet")
     print("_"*50)
 
-
+def play_again():
+    next_game = input("Would you like to play again? if so press y if not press any key")
+    if next_game.lower() == "y":
+        main()
+    else:
+        quit()
 
 
 def RunGame():
@@ -261,6 +270,7 @@ def main():
     print("Welcome to Fleet fury")
     print("A console based battleships game")
     print("_"*30)
+
     menu_choice = validate_menu_choice()
     show_menu(menu_choice)
     player_name = RunGame()
@@ -276,5 +286,5 @@ def main():
         if game_over:
             break
 
-
 main()
+play_again()
