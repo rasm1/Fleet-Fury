@@ -202,12 +202,48 @@ Testing was done on the display, Name input validation, ship amount input valida
 | lose | To display lose message and prompt to play again | sink all player's ships | as expected
 | play again | To restart the game and clear all relevent variables | enter y to restart the game, anything else to quit | as expected
 
-### Input validation testing
+## Input validation testing
 
 <ul>
 <li>Menu</li>
 <li>cannot leave blank</li>
-<li>cannot be</li>
+<li>cannot be 0 or higher than 3</li>
+<li>cannot be a string</li>
+<li>cannot be a decimal</li>
+<li>must be an integer between 0 and 3</li>
 </ul>
 
 ![menu validation](assets/images/menu-validation.png)
+
+<ul>
+<li>Name prompt</li>
+<li>cannot leave blank</li>
+<li>cannot be smaller than 3 or larger than 15 letters/<li>
+<li>cannot be an integer</li>
+<li>cannot be a decimal</li>
+<li>must be an a string between 3 or 15 letters</li>
+</ul>
+
+![menu validation](assets/images/name-validation.png)
+
+<ul>
+<li>Ship prompt</li>
+<li>cannot leave blank</li>
+<li>cannot be be less than 1 or larger than 10</li>
+<li>cannot be a string</li>
+<li>cannot be a decimal</li>
+<li>must be an an integer between 1 and 10</li>
+</ul>
+
+![menu validation](assets/images/ship-validation.png)
+
+<ul>
+<li>Shot prompt</li>
+<li>cannot leave blank</li>
+<li>cannot be be less than 0 or larger than 35</li>
+<li>cannot be a string</li>
+<li>cannot be a decimal</li>
+<li>must be an an integer between 0 and 35</li>
+</ul>
+
+![menu validation](assets/images/shot-validation.png)
